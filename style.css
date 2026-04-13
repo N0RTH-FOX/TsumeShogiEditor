@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Yuji Mai", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+html{
+    background: color-mix(in srgb, #fd6, #000);
+}
+main{
+    display: grid;
+    grid-template: 
+        "second board first" auto/
+        1fr auto 1fr;
+}
+#board{
+    grid-area: board;
+    background: #000;
+}
+#tate1{
+    margin: .5vh 0;
+}
+#tate2,#tate3,#tate4,#tate5,#tate6,#tate7,#tate8,#tate9{
+    margin: 0 0 .5vh 0;
+}
+.tate{
+    aspect-ratio: 10/1;
+    display: flex;
+    width: 100vh;
+}
+.yoko9{
+    margin: 0 .5vh;
+}
+.yoko1,.yoko2,.yoko3,.yoko4,.yoko5,.yoko6,.yoko7,.yoko8{
+    margin: 0 .5vh 0 0;
+}
+.yoko{
+    background: #fd6;
+    width: 10.564vh;
+    height: 10.564vh;
+}
+.yoko:hover{
+    background: color-mix(in srgb, #fd6, #fff);
+}
+.yoko:active{
+    background: #fd6;
+}
+.piece-hu{
+    background-image: url(./assets/piece/black_pawn.png);
+    background-size: 100%;
+    aspect-ratio: 1/1;
+    width: 10vh;
+}
+
+.editor{
+    background: #fd6;
+    border-top: #000 solid .5vh;
+    border-bottom: #000 solid .5vh;
+    padding: 5vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+
+    >div{
+        display: flex;
+        >img{
+            aspect-ratio: 1/1;
+            width: 9vh;
+            height: 9vh;
+        }
+        >p{
+            font-size: 5vh;
+            line-height: 9vh;
+        }
+        >p::before{
+            content: "×";
+        }
+    }
+    >div:hover{
+        background: rgba(255, 255, 255, .5);
+    }
+    >div:active{
+        background-color: #0000;
+    }
+}
+#editor1{
+    grid-area: first;
+    margin: 50vh 0 0 0;
+    border-right: #000 solid .5vh;
+}
+#editor2{
+    grid-area: second;
+    margin: 0 0 50vh 0;
+    border-left: #000 solid .5vh;
+}
