@@ -41,16 +41,42 @@ main{
     height: 10.564vh;
 }
 .yoko:hover{
-    background: color-mix(in srgb, #fd6, #fff);
+    background-color: color-mix(in srgb, #fd6, #fff 30%);
 }
 .yoko:active{
-    background: #fd6;
+    background-color: #fd6;
 }
 .piece-hu{
     background-image: url(./assets/piece/black_pawn.png);
     background-size: 100%;
-    aspect-ratio: 1/1;
-    width: 10vh;
+}
+.piece-king{
+    background-image: url(./assets/piece/black_king.png);
+    background-size: 100%;
+}
+.piece-kin{
+    background-image: url(./assets/piece/black_gold.png);
+    background-size: 100%;
+}
+.piece-gin{
+    background-image: url(./assets/piece/black_silver.png);
+    background-size: 100%;
+}
+.piece-kei{
+    background-image: url(./assets/piece/black_knight.png);
+    background-size: 100%;
+}
+.piece-kyou{
+    background-image: url(./assets/piece/black_lance.png);
+    background-size: 100%;
+}
+.piece-hi{
+    background-image: url(./assets/piece/black_rook.png);
+    background-size: 100%;
+}
+.piece-kaku{
+    background-image: url(./assets/piece/black_bishop.png);
+    background-size: 100%;
 }
 
 .editor{
@@ -65,11 +91,15 @@ main{
     >div{
         display: flex;
         >img{
+            pointer-events: none;
+            user-select: none;
             aspect-ratio: 1/1;
             width: 9vh;
             height: 9vh;
         }
         >p{
+            user-select: none;
+            pointer-events: none;
             font-size: 5vh;
             line-height: 9vh;
         }
@@ -78,7 +108,7 @@ main{
         }
     }
     >div:hover{
-        background: rgba(255, 255, 255, .5);
+        background: rgba(255, 255, 255, .35);
     }
     >div:active{
         background-color: #0000;
