@@ -70,7 +70,10 @@ stok_update()
 document.addEventListener("click",(event)=>{
     console.log("クリックした要素:", event.target.className);
     if(edit_status == Boolean(true)){
-        if(event.target.id == "hu"){
+        if(event.target.tagName == "MAIN" || event.target.className == "editor"){
+            select_status = ""
+        }
+        else if(event.target.id == "hu"){
             if(select_status != "hu"){
                 select_status = "hu"
             }
