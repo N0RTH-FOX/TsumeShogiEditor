@@ -11,8 +11,9 @@ html{
 main{
     display: grid;
     grid-template: 
-        "second board first" auto/
-        1fr auto 1fr;
+        "second board menu" 50vh
+        "space board first" 50vh/
+        1fr 100vh 1fr;
 }
 #board{
     grid-area: board;
@@ -37,8 +38,8 @@ main{
 }
 .yoko{
     background: #fd6;
-    width: 10.564vh;
-    height: 10.564vh;
+    width: calc(95vh/9);
+    height: calc(95vh/9);
 }
 .yoko:hover{
     background-color: color-mix(in srgb, #fd6, #fff 30%);
@@ -46,6 +47,10 @@ main{
 .yoko:active{
     background-color: #fd6;
 }
+#tate7>.yoko3,#tate4>.yoko3,#tate4>.yoko6,#tate7>.yoko6{border-radius: 15% 0 0 0;}
+#tate4>.yoko7,#tate4>.yoko4,#tate7>.yoko7,#tate7>.yoko4{border-radius: 0 15% 0 0;}
+#tate3>.yoko7,#tate3>.yoko4,#tate6>.yoko4,#tate6>.yoko7{border-radius: 0 0 15% 0;}
+#tate3>.yoko6,#tate3>.yoko3,#tate6>.yoko6,#tate6>.yoko3{border-radius: 0 0 0 15%;}
 .piece-hu{
     background-image: url(./assets/piece/black_pawn.png);
     background-size: 100%;
@@ -81,8 +86,7 @@ main{
 
 .editor{
     background: #fd6;
-    border-top: #000 solid .5vh;
-    border-bottom: #000 solid .5vh;
+    border: #000 solid .5vh;
     padding: 5vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -116,11 +120,9 @@ main{
 }
 #editor1{
     grid-area: first;
-    margin: 50vh 0 0 0;
-    border-right: #000 solid .5vh;
+    border-left: none;
 }
 #editor2{
     grid-area: second;
-    margin: 0 0 50vh 0;
-    border-left: #000 solid .5vh;
+    border-right: none;
 }

@@ -1,0 +1,54 @@
+main{
+    grid-template: 
+        "second menu" 1fr
+        "board board" 100vw
+        "space first" 1fr/
+        50vw 50vw;
+}
+.yoko{
+    width: calc(95vw/9);
+    height: calc(95vw/9);
+}
+.yoko9{
+    margin: 0 .5vw;
+}
+.yoko1,.yoko2,.yoko3,.yoko4,.yoko5,.yoko6,.yoko7,.yoko8{
+    margin: 0 .5vw 0 0;
+}
+.tate{
+    aspect-ratio: 10/1;
+    display: flex;
+    width: 100vw;
+}
+#tate1{
+    margin: .5vw 0;
+}
+#tate2,#tate3,#tate4,#tate5,#tate6,#tate7,#tate8,#tate9{
+    margin: 0 0 .5vw 0;
+}
+.editor{
+    background: #fd6;
+    border: #000 solid .5vw;
+    padding: 5vw;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+
+    >div{
+        display: flex;
+        >img{
+            aspect-ratio: 1/1;
+            width: 9vw;
+            height: 9vw;
+        }
+        >p{
+            font-size: 5vw;
+            line-height: 9vw;
+        }
+    }
+}
+#editor1{
+    border-top: none;
+}
+#editor2{
+    border-bottom: none;
+}

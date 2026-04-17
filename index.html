@@ -3,10 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Yuji+Mai&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <!-- pc用 -->
+    <link rel="stylesheet" href="style.css" media="screen and (min-width: 600px)">
+    <!-- mobile用 -->
+    <link rel="stylesheet" href="mobile.css" media="screen and (max-width: 599px)">
     <title>詰将棋Editor</title>
 </head>
 <body>
@@ -114,14 +119,14 @@
         </div>
 
         <div id="editor1" class="editor">
-            <div id="hu"><img src="./assets/piece/black_pawn.png"><p id="piece_hu_stok">?</p></div>
-            <div id="king"><img src="./assets/piece/black_king.png"><p id="piece_king_stok">?</p></div>
-            <div id="kin"><img src="./assets/piece/black_gold.png"><p id="piece_kin_stok">?</p></div>
-            <div id="gin"><img src="./assets/piece/black_silver.png"><p id="piece_gin_stok">?</p></div>
-            <div id="kei"><img src="./assets/piece/black_knight.png"><p id="piece_kei_stok">?</p></div>
-            <div id="kyou"><img src="./assets/piece/black_lance.png"><p id="piece_kyou_stok">?</p></div>
-            <div id="hi"><img src="./assets/piece/black_rook.png"><p id="piece_hi_stok">?</p></div>
-            <div id="kaku"><img src="./assets/piece/black_bishop.png"><p id="piece_kaku_stok">?</p></div>
+            <div id="hu"><img src="./assets/piece/black_pawn.png"><p id="piece_hu_stok"></p></div>
+            <div id="king"><img src="./assets/piece/black_king.png"><p id="piece_king_stok"></p></div>
+            <div id="kin"><img src="./assets/piece/black_gold.png"><p id="piece_kin_stok"></p></div>
+            <div id="gin"><img src="./assets/piece/black_silver.png"><p id="piece_gin_stok"></p></div>
+            <div id="kei"><img src="./assets/piece/black_knight.png"><p id="piece_kei_stok"></p></div>
+            <div id="kyou"><img src="./assets/piece/black_lance.png"><p id="piece_kyou_stok"></p></div>
+            <div id="hi"><img src="./assets/piece/black_rook.png"><p id="piece_hi_stok"></p></div>
+            <div id="kaku"><img src="./assets/piece/black_bishop.png"><p id="piece_kaku_stok"></p></div>
         </div>
         <div id="editor2" class="editor"></div>
     </main>
