@@ -5,7 +5,7 @@
     font-weight: 400;
     font-style: normal;
 }
-html{
+body{
     background: color-mix(in srgb, #fd6, #000);
 }
 main{
@@ -84,6 +84,22 @@ main{
     background-size: 100%;
 }
 
+#menu{
+    grid-area: menu;
+    >div{
+        width: 100%;
+        div{
+            >p{
+                display: inline;
+            }
+            >button,input{
+                border: 1px #aaa solid;
+                border-radius: 0;
+            }
+        }
+    }
+}
+#in_file{display: none;}
 .editor{
     background: #fd6;
     border: #000 solid .5vh;

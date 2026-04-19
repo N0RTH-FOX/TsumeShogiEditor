@@ -118,6 +118,21 @@
             </div>
         </div>
 
+        <div id="menu">
+            <div id="download">
+                <div id="title"><p>題名　：</p><input type="text" value="Untitled" id="in_title"></div>
+                <div id="author"><p>作者　：</p><input type="text" value="No name" id="in_author"></div>
+                <div id="level"><p>難易度：</p><input type="number" min="1" max="10" value="1" id="in_level"></div>
+                <div id="save_file"><button onclick="save_file()">保存</button></div>
+            </div>
+            <div id="upload">
+                <input type="file" id="in_file">
+                <div><button id="in_file_button">読込</button></div>
+            </div>
+            <div id="swap_status">
+                <div><button>a</button></div>
+            </div>
+        </div>
         <div id="editor1" class="editor">
             <div id="hu"><img src="./assets/piece/black_pawn.png"><p id="piece_hu_stok"></p></div>
             <div id="king"><img src="./assets/piece/black_king.png"><p id="piece_king_stok"></p></div>
@@ -128,7 +143,9 @@
             <div id="hi"><img src="./assets/piece/black_rook.png"><p id="piece_hi_stok"></p></div>
             <div id="kaku"><img src="./assets/piece/black_bishop.png"><p id="piece_kaku_stok"></p></div>
         </div>
-        <div id="editor2" class="editor"></div>
+        <div id="editor2" class="editor">
+
+        </div>
     </main>
     <script src="main.js"></script>
 </body>
