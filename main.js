@@ -6,6 +6,16 @@ let element_kei_stok = document.getElementById("piece_kei_stok");
 let element_kyou_stok = document.getElementById("piece_kyou_stok");
 let element_hi_stok = document.getElementById("piece_hi_stok");
 let element_kaku_stok = document.getElementById("piece_kaku_stok");
+
+let element_hu2_stok = document.getElementById("piece_hu2_stok");
+let element_king2_stok = document.getElementById("piece_king2_stok");
+let element_kin2_stok = document.getElementById("piece_kin2_stok");
+let element_gin2_stok = document.getElementById("piece_gin2_stok");
+let element_kei2_stok = document.getElementById("piece_kei2_stok");
+let element_kyou2_stok = document.getElementById("piece_kyou2_stok");
+let element_hi2_stok = document.getElementById("piece_hi2_stok");
+let element_kaku2_stok = document.getElementById("piece_kaku2_stok");
+
 let piece_hu_stok = 9;
 let piece_king_stok = 1;
 let piece_kin_stok = 2;
@@ -14,6 +24,15 @@ let piece_kei_stok = 2;
 let piece_kyou_stok = 2;
 let piece_hi_stok = 1;
 let piece_kaku_stok = 1;
+
+let piece_hu2_stok = 9;
+let piece_king2_stok = 1;
+let piece_kin2_stok = 2;
+let piece_gin2_stok = 2;
+let piece_kei2_stok = 2;
+let piece_kyou2_stok = 2;
+let piece_hi2_stok = 1;
+let piece_kaku2_stok = 1;
 
 let select_status = "";
 let edit_status = Boolean(true);
@@ -28,8 +47,11 @@ let piece_pos = [
     ["","","","","","","","",""],
     ["","","","","","","","",""],
     ["Untitled","No name",1,"?"],
-    ["hu","king","kin","gin","kei","kyou","hi","kaku"]
+    ["hu","king","kin","gin","kei","kyou","hi","kaku"],
+    ["hu2","king2","kin2","gin2","kei2","kyou2","hi2","kaku2"]
 ]
+const pieces = ["hu", "king", "kin", "gin", "kei", "kyou", "hi", "kaku", "hu2", "king2", "kin2", "gin2", "kei2", "kyou2", "hi2", "kaku2"];
+
 const sound_effect  = new Audio("./assets/shogi.mp3");
 sound_effect.currentTime = 0;
 
@@ -42,6 +64,14 @@ function stok_update(){
     element_kyou_stok.textContent = piece_kyou_stok;
     element_hi_stok.textContent = piece_hi_stok;
     element_kaku_stok.textContent = piece_kaku_stok;
+    element_hu2_stok.textContent = piece_hu2_stok;
+    element_king2_stok.textContent = piece_king2_stok;
+    element_kin2_stok.textContent = piece_kin2_stok;
+    element_gin2_stok.textContent = piece_gin2_stok;
+    element_kei2_stok.textContent = piece_kei2_stok;
+    element_kyou2_stok.textContent = piece_kyou2_stok;
+    element_hi2_stok.textContent = piece_hi2_stok;
+    element_kaku2_stok.textContent = piece_kaku2_stok;
 }
 function piece_override(){
     if(event.target.classList.contains("piece-hu")){
@@ -193,6 +223,14 @@ function save_file(){
     piece_pos[10][5] = piece_kyou_stok;
     piece_pos[10][6] = piece_hi_stok;
     piece_pos[10][7] = piece_kaku_stok;
+    piece_pos[11][0] = piece_hu2_stok;
+    piece_pos[11][1] = piece_king2_stok;
+    piece_pos[11][2] = piece_kin2_stok;
+    piece_pos[11][3] = piece_gin2_stok;
+    piece_pos[11][4] = piece_kei2_stok;
+    piece_pos[11][5] = piece_kyou2_stok;
+    piece_pos[11][6] = piece_hi2_stok;
+    piece_pos[11][7] = piece_kaku2_stok;
     const blob = new Blob([piece_pos],{type:'text/tse'});
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
@@ -208,208 +246,73 @@ document.addEventListener("click",(event)=>{
         if(event.target.tagName == "MAIN" || event.target.className == "editor"){
             select_status = ""
         }
-        else if(event.target.id == "hu"){
-            if(select_status != "hu"){
-                select_status = "hu"
+        pieces.forEach(piece => {
+            if(event.target.id == piece){
+                if(select_status != piece){
+                    select_status = piece
+                }
+                else{
+                    select_status = ""
+                }
             }
-            else{
-                select_status = ""
-            }
-        }
-        else if(event.target.id == "king"){
-            if(select_status != "king"){
-                select_status = "king"
-            }
-            else{
-                select_status = ""
-            }
-        }
-        else if(event.target.id == "kin"){
-            if(select_status != "kin"){
-                select_status = "kin"
-            }
-            else{
-                select_status = ""
-            }
-        }
-        else if(event.target.id == "gin"){
-            if(select_status != "gin"){
-                select_status = "gin"
-            }
-            else{
-                select_status = ""
-            }
-        }
-        else if(event.target.id == "kei"){
-            if(select_status != "kei"){
-                select_status = "kei"
-            }
-            else{
-                select_status = ""
-            }
-        }
-        else if(event.target.id == "kyou"){
-            if(select_status != "kyou"){
-                select_status = "kyou"
-            }
-            else{
-                select_status = ""
-            }
-        }
-        else if(event.target.id == "hi"){
-            if(select_status != "hi"){
-                select_status = "hi"
-            }
-            else{
-                select_status = ""
-            }
-        }
-        else if(event.target.id == "kaku"){
-            if(select_status != "kaku"){
-                select_status = "kaku"
-            }
-            else{
-                select_status = ""
-            }
-        }
+        });
+        if(event.target.classList.contains("yoko") && select_status != ""){
+            (function (piece){
+                let stok
+                if(piece == "hu"){stok = piece_hu_stok}
+                else if(piece == "king"){stok = piece_king_stok}
+                else if(piece == "kin"){stok = piece_kin_stok}
+                else if(piece == "gin"){stok = piece_gin_stok}
+                else if(piece == "kei"){stok = piece_kei_stok}
+                else if(piece == "kyou"){stok = piece_kyou_stok}
+                else if(piece == "hi"){stok = piece_hi_stok}
+                else if(piece == "kaku"){stok = piece_kaku_stok}
+                else if(piece == "hu2"){stok = piece_hu2_stok}
+                else if(piece == "king2"){stok = piece_king2_stok}
+                else if(piece == "kin2"){stok = piece_kin2_stok}
+                else if(piece == "gin2"){stok = piece_gin2_stok}
+                else if(piece == "kei2"){stok = piece_kei2_stok}
+                else if(piece == "kyou2"){stok = piece_kyou2_stok}
+                else if(piece == "hi2"){stok = piece_hi2_stok}
+                else if(piece == "kaku2"){stok = piece_kaku2_stok}
+            
+                if(select_status == piece){
+                    if(event.target.classList.contains("piece-"+piece)){
+                        event.target.classList.remove("piece-"+piece);
+                        stok++;
+                        piece_pos_update();
+                    }
+                    else if(!event.target.classList.contains("piece-"+piece) && stok > 0){
+                        piece_override();
+                        event.target.classList.add("piece-"+piece);
+                        stok--;
+                        sound_effect.currentTime = 0;
+                        sound_effect.play();
+                        piece_pos_update(piece);
+                    }
+                }
 
-        if(event.target.classList.contains("yoko")){
-            if(select_status == "hu"){
-                if(event.target.classList.contains("piece-hu")){
-                    event.target.classList.remove("piece-hu");
-                    piece_hu_stok++;
-                    piece_pos_update();
-                }
-                else if(!event.target.classList.contains("piece-hu") && piece_hu_stok > 0){
-                    piece_override();
-                    event.target.classList.add("piece-hu");
-                    piece_hu_stok--;
-                    sound_effect.currentTime = 0;
-                    sound_effect.play();
-                    piece_pos_update("hu");
-                }
-            }
-            else if(select_status == "king"){
-                if(event.target.classList.contains("piece-king")){
-                    event.target.classList.remove("piece-king");
-                    piece_king_stok++;
-                    piece_pos_update();
-                }
-                else if(!event.target.classList.contains("piece-king") && piece_king_stok > 0){
-                    piece_override();
-                    event.target.classList.add("piece-king");
-                    piece_king_stok--;
-                    sound_effect.currentTime = 0;
-                    sound_effect.play();
-                    piece_pos_update("king");
-                }
-            }
-            else if(select_status == "kin"){
-                if(event.target.classList.contains("piece-kin")){
-                    event.target.classList.remove("piece-kin");
-                    piece_kin_stok++;
-                    piece_pos_update();
-                }
-                else if(!event.target.classList.contains("piece-kin") && piece_kin_stok > 0){
-                    piece_override();
-                    event.target.classList.add("piece-kin");
-                    piece_kin_stok--;
-                    sound_effect.currentTime = 0;
-                    sound_effect.play();
-                    piece_pos_update("kin");
-                }
-            }
-            else if(select_status == "gin"){
-                if(event.target.classList.contains("piece-gin")){
-                    event.target.classList.remove("piece-gin");
-                    piece_gin_stok++;
-                    piece_pos_update();
-                }
-                else if(!event.target.classList.contains("piece-gin") && piece_gin_stok > 0){
-                    piece_override();
-                    event.target.classList.add("piece-gin");
-                    piece_gin_stok--;
-                    sound_effect.currentTime = 0;
-                    sound_effect.play();
-                    piece_pos_update("gin");
-                }
-            }
-            else if(select_status == "kei"){
-                if(event.target.classList.contains("piece-kei")){
-                    event.target.classList.remove("piece-kei");
-                    piece_kei_stok++;
-                    piece_pos_update();
-                }
-                else if(!event.target.classList.contains("piece-kei") && piece_kei_stok > 0){
-                    piece_override();
-                    event.target.classList.add("piece-kei");
-                    piece_kei_stok--;
-                    sound_effect.currentTime = 0;
-                    sound_effect.play();
-                    piece_pos_update("kei");
-                }
-            }
-            else if(select_status == "kyou"){
-                if(event.target.classList.contains("piece-kyou")){
-                    event.target.classList.remove("piece-kyou");
-                    piece_kyou_stok++;
-                    piece_pos_update();
-                }
-                else if(!event.target.classList.contains("piece-kyou") && piece_kyou_stok > 0){
-                    piece_override();
-                    event.target.classList.add("piece-kyou");
-                    piece_kyou_stok--;
-                    sound_effect.currentTime = 0;
-                    sound_effect.play();
-                    piece_pos_update("kyou");
-                }
-            }
-            else if(select_status == "hi"){
-                if(event.target.classList.contains("piece-hi")){
-                    event.target.classList.remove("piece-hi");
-                    piece_hi_stok++;
-                    piece_pos_update();
-                }
-                else if(!event.target.classList.contains("piece-hi") && piece_hi_stok > 0){
-                    piece_override();
-                    event.target.classList.add("piece-hi");
-                    piece_hi_stok--;
-                    sound_effect.currentTime = 0;
-                    sound_effect.play();
-                    piece_pos_update("hi");
-                }
-            }
-            else if(select_status == "kaku"){
-                if(event.target.classList.contains("piece-kaku")){
-                    event.target.classList.remove("piece-kaku")
-                    piece_kaku_stok++;
-                }
-                else if(!event.target.classList.contains("piece-kaku") && piece_kaku_stok > 0){
-                    piece_override();
-                    event.target.classList.add("piece-kaku");
-                    piece_kaku_stok--;
-                    sound_effect.currentTime = 0;
-                    sound_effect.play();
-                    piece_pos_update("kaku");
-                }
-            }
+                if(piece == "hu"){piece_hu_stok = stok}
+                else if(piece == "king"){piece_king_stok = stok}
+                else if(piece == "kin"){piece_kin_stok = stok}
+                else if(piece == "gin"){piece_gin_stok = stok}
+                else if(piece == "kei"){piece_kei_stok = stok}
+                else if(piece == "kyou"){piece_kyou_stok = stok}
+                else if(piece == "hi"){piece_hi_stok = stok}
+                else if(piece == "kaku"){piece_kaku_stok = stok}
+                else if(piece == "hu2"){piece_hu2_stok = stok}
+                else if(piece == "king2"){piece_king2_stok = stok}
+                else if(piece == "kin2"){piece_kin2_stok = stok}
+                else if(piece == "gin2"){piece_gin2_stok = stok}
+                else if(piece == "kei2"){piece_kei2_stok = stok}
+                else if(piece == "kyou2"){piece_kyou2_stok = stok}
+                else if(piece == "hi2"){piece_hi2_stok = stok}
+                else if(piece == "kaku2"){piece_kaku2_stok = stok}
+            })(select_status)
         }
-        if(select_status == "hu"){document.getElementById("hu").style.background = "#fffb";}
-        else if(select_status != "hu"){document.getElementById("hu").style.background = "";}
-        if(select_status == "king"){document.getElementById("king").style.background = "#fffb";}
-        else if(select_status != "king"){document.getElementById("king").style.background = "";}
-        if(select_status == "kin"){document.getElementById("kin").style.background = "#fffb";}
-        else if(select_status != "kin"){document.getElementById("kin").style.background = "";}
-        if(select_status == "gin"){document.getElementById("gin").style.background = "#fffb";}
-        else if(select_status != "gin"){document.getElementById("gin").style.background = "";}
-        if(select_status == "kei"){document.getElementById("kei").style.background = "#fffb";}
-        else if(select_status != "kei"){document.getElementById("kei").style.background = "";}
-        if(select_status == "kyou"){document.getElementById("kyou").style.background = "#fffb";}
-        else if(select_status != "kyou"){document.getElementById("kyou").style.background = "";}
-        if(select_status == "hi"){document.getElementById("hi").style.background = "#fffb";}
-        else if(select_status != "hi"){document.getElementById("hi").style.background = "";}
-        if(select_status == "kaku"){document.getElementById("kaku").style.background = "#fffb";}
-        else if(select_status != "kaku"){document.getElementById("kaku").style.background = "";}
+        pieces.forEach(piece => {
+            document.getElementById(piece).style.background = (select_status === piece) ? "#fffb" : "";
+        });
     }
     stok_update()
 })
@@ -418,18 +321,13 @@ document.getElementById("in_file").addEventListener("change",(event)=>{
     let reader = new FileReader();
     reader.readAsText(event.target.files[0]);
     reader.onload = ()=>{
-        document.querySelectorAll(".piece-hu").forEach(element => {element.classList.remove('piece-hu');});
-        document.querySelectorAll(".piece-king").forEach(element => {element.classList.remove('piece-king');});
-        document.querySelectorAll(".piece-kin").forEach(element => {element.classList.remove('piece-kin');});
-        document.querySelectorAll(".piece-gin").forEach(element => {element.classList.remove('piece-gin');});
-        document.querySelectorAll(".piece-kei").forEach(element => {element.classList.remove('piece-kei');});
-        document.querySelectorAll(".piece-kyou").forEach(element => {element.classList.remove('piece-kyou');});
-        document.querySelectorAll(".piece-hi").forEach(element => {element.classList.remove('piece-hi');});
-        document.querySelectorAll(".piece-kaku").forEach(element => {element.classList.remove('piece-kaku');});
-
+        pieces.forEach(piece => {
+            document.querySelectorAll(".piece-"+piece).forEach(element => {element.classList.remove('piece-'+piece);});
+        });
         for (let i = 0; i < 9; i++) {piece_pos[i] = reader.result.split(",").slice(i*9,(i+1)*9)}
         piece_pos[9] = reader.result.split(",").slice(81,85)
         piece_pos[10] = reader.result.split(",").slice(85,93)
+        piece_pos[11] = reader.result.split(",").slice(93,101)
         for (let i = 0; i < 10; i++) {
             document.getElementById("tate1").children[i]?.classList.add("piece-"+piece_pos[0][i])
             document.getElementById("tate2").children[i]?.classList.add("piece-"+piece_pos[1][i])
@@ -449,6 +347,14 @@ document.getElementById("in_file").addEventListener("change",(event)=>{
         piece_kyou_stok = piece_pos[10][5];
         piece_hi_stok = piece_pos[10][6];
         piece_kaku_stok = piece_pos[10][7];
+        piece_hu2_stok = piece_pos[11][0];
+        piece_king2_stok = piece_pos[11][1];
+        piece_kin2_stok = piece_pos[11][2];
+        piece_gin2_stok = piece_pos[11][3];
+        piece_kei2_stok = piece_pos[11][4];
+        piece_kyou2_stok = piece_pos[11][5];
+        piece_hi2_stok = piece_pos[11][6];
+        piece_kaku2_stok = piece_pos[11][7];
         stok_update()
 
         document.getElementById("in_title").value = piece_pos[9][0];

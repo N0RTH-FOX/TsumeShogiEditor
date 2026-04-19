@@ -84,6 +84,39 @@ main{
     background-size: 100%;
 }
 
+.piece-hu2{
+    background-image: url(./assets/piece/white_pawn.png);
+    background-size: 100%;
+}
+.piece-king2{
+    background-image: url(./assets/piece/white_king2.png);
+    background-size: 100%;
+}
+.piece-kin2{
+    background-image: url(./assets/piece/white_gold.png);
+    background-size: 100%;
+}
+.piece-gin2{
+    background-image: url(./assets/piece/white_silver.png);
+    background-size: 100%;
+}
+.piece-kei2{
+    background-image: url(./assets/piece/white_knight.png);
+    background-size: 100%;
+}
+.piece-kyou2{
+    background-image: url(./assets/piece/white_lance.png);
+    background-size: 100%;
+}
+.piece-hi2{
+    background-image: url(./assets/piece/white_rook.png);
+    background-size: 100%;
+}
+.piece-kaku2{
+    background-image: url(./assets/piece/white_bishop.png);
+    background-size: 100%;
+}
+
 #menu{
     zoom: 150%;
     color: #fff;
