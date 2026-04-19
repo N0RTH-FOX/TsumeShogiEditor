@@ -46,6 +46,7 @@ main{
     border-right: #000 solid .5vw;
 }
 #menu{
+    zoom: 100%;
     color: #fff;
     padding: .5rem;
     >div>div{
