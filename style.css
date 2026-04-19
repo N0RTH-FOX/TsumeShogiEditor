@@ -85,17 +85,20 @@ main{
 }
 
 #menu{
+    color: #fff;
+    padding: .5rem;
     grid-area: menu;
-    >div{
-        width: 100%;
-        div{
-            >p{
-                display: inline;
-            }
-            >button,input{
-                border: 1px #aaa solid;
-                border-radius: 0;
-            }
+    >div>div{
+        >p{
+            display: inline;
+        }
+        >button,input{
+            width: 100%;
+            border: 1px #aaa solid;
+            border-radius: 0;
+        }
+        >input:hover{
+            border: none;
         }
     }
 }
