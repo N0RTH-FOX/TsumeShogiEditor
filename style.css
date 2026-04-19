@@ -85,6 +85,7 @@ main{
 }
 
 #menu{
+    zoom: 150%;
     color: #fff;
     padding: .5rem;
     grid-area: menu;

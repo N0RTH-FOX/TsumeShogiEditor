@@ -193,7 +193,7 @@ function save_file(){
     piece_pos[10][5] = piece_kyou_stok;
     piece_pos[10][6] = piece_hi_stok;
     piece_pos[10][7] = piece_kaku_stok;
-    const blob = new Blob([piece_pos],{type:'text/plain'});
+    const blob = new Blob([piece_pos],{type:'text/tse'});
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
     a.download = piece_pos[9][0]+".tse";
@@ -450,5 +450,9 @@ document.getElementById("in_file").addEventListener("change",(event)=>{
         piece_hi_stok = piece_pos[10][6];
         piece_kaku_stok = piece_pos[10][7];
         stok_update()
+
+        document.getElementById("in_title").value = piece_pos[9][0];
+        document.getElementById("in_author").value = piece_pos[9][1];
+        document.getElementById("in_level").value = piece_pos[9][2];
     }
 })
